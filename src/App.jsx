@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 import BlogState from "./context/blogs/BlogState";
 import UserState from "./context/users/UserState";
 import Login from "./pages/Login";
+import PrivateRoute from "./route/PrivateRoute";
 function App() {
   const client = new QueryClient();
 
@@ -18,7 +19,9 @@ function App() {
             <Navbar />
             <Routes>
               <Route path='/' element={<Home />} />
-              <Route path='/myblogs' element={<MyBlogs />} />
+              <Route element={<PrivateRoute />}>
+                <Route path='/myblogs' element={<MyBlogs />} exact />
+              </Route>
               <Route path='/login' element={<Login />} />
             </Routes>
             <Footer />
