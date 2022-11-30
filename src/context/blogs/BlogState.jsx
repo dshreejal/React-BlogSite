@@ -1,11 +1,9 @@
-import { useState } from "react";
 import BlogContext from "./BlogContext";
-import { useQuery } from "@tanstack/react-query"
 import Axios from "axios"
 const BlogState = (props) => {
     const host = import.meta.env.VITE_BACKEND_URL
 
-    //Fetch all Notes
+    //Fetch all Blogs
     const fetchAllBlog = async () => {
         const response = await Axios.get(`${host}/api/blog/fetchblogs`);
         const products = response.data;
