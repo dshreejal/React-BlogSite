@@ -11,7 +11,7 @@ function App() {
   return (
     <QueryClientProvider client={client}>
       <BlogState>
-        <div className=" bg-[#b2e0db] min-h-screen">
+        <div className=" bg-[#b2e0db] min-h-screen flex flex-col">
           <Navbar />
           <Routes>
             <Route path='/' element={<Home />} />
