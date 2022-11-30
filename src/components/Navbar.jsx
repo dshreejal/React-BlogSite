@@ -17,7 +17,7 @@ const Navbar = () => {
             </div>
             <div>
                 {/* !!!!!!!!!!!!!! TODO: Redner LogIn for new users and Signout for logged in users */}
-                <NavLink to='' className='flex items-center justify-center gap-1 px-1 font-medium text-lg'>
+                <NavLink to='/login' className='flex items-center justify-center gap-1 px-1 font-medium text-lg'>
                     <div>Log In</div>
                     <VscSignIn size={20} />
                 </NavLink>
