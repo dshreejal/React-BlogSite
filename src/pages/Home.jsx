@@ -10,7 +10,7 @@ const Home = () => {
     return (
         <div className=''>
             {isLoading ?
-                <div className='min-h-screen flex items-center justify-center gap-2'>
+                <div className='min-h-[80vh] flex items-center justify-center gap-2'>
                     Loading
                     <div role="status">
                         <svg aria-hidden="true" className="mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -22,7 +22,7 @@ const Home = () => {
                 : <div></div>
             }
             {isError ?
-                <div className='min-h-screen flex items-center justify-center'>
+                <div className='min-h-[80vh] flex items-center justify-center'>
                     Error Loading
                 </div>
                 : <div></div>
@@ -30,13 +30,11 @@ const Home = () => {
             {data ?
                 <div className=''>
                     <div className='text-center font-extrabold text-3xl mt-10'>All Blogs</div>
-                    <section className="text-gray-600 body-font overflow-hidden">
-                        <div className="container px-10 py-10 mx-auto">
-                            <div className="-my-8 divide-y-2 divide-gray-100">
-                                {data?.map((blog) => <Blog key={blog._id} blog={blog} />)}
-                            </div>
+                    <div className='flex items-center justify-center'>
+                        <div class="grid px-12 gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10">
+                            {data?.map((blog) => <Blog key={blog._id} blog={blog} />)}
                         </div>
-                    </section>
+                    </div>
                 </div>
                 : <div></div>
             }

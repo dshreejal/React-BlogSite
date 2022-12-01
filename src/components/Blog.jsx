@@ -3,20 +3,16 @@ import React from 'react'
 const Blog = ({ blog }) => {
     return (
         <>
-            <div className="py-8 flex flex-wrap md:flex-nowrap">
-                <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col px-5">
-                    <span className="font-semibold title-font text-gray-700">CATEGORY</span>
-                    <span className="mt-1 text-gray-500 text-sm">Date Published: {blog.date.slice(0, 10)}</span>
+            <div class="rounded-lg shadow-lg bg-white max-w-sm max-h-[500px]">
+                <div className='flex items-center justify-center'>
+                    <img class="" src={`${import.meta.env.VITE_BACKEND_URL}/images/${blog.img}`} alt="" />
                 </div>
-                <div className="md:flex-grow">
-                    <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">{blog.title}</h2>
-                    <p className="leading-relaxed">{blog.description}</p>
-                    <a className="text-indigo-500 inline-flex items-center mt-4">Learn More
-                        <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M5 12h14"></path>
-                            <path d="M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
+                <div class="p-6">
+                    <h5 class="text-gray-900 text-xl font-medium mb-2">{blog.title}</h5>
+                    <p class="text-gray-700 text-base mb-4">
+                        {blog.description}
+                    </p>
+                    <button type="button" class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Read Mpre</button>
                 </div>
             </div>
         </>
