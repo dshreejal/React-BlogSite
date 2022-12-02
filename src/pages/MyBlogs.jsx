@@ -32,7 +32,7 @@ const MyBlogs = () => {
                 <div className=''>
                     <div className='text-center font-extrabold text-3xl mt-10'>My Blogs</div>
                     <div className='flex items-center justify-center'>
-                        <div class="grid px-12 gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10">
+                        <div className="grid px-12 gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10">
                             {data?.map((blog) => <PersonalBlog key={blog._id} blog={blog} />)}
                         </div>
                     </div>
