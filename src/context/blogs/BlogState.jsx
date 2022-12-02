@@ -19,8 +19,13 @@ const BlogState = (props) => {
         const products = response.data;
         return products;
     }
+    const fetchBlog = async () => {
+        const response = await Axios.get(`${host}/api/blog/${sessionStorage.getItem('blog-id')}`);
+        const blog = response.data;
+        return blog;
+    }
     return (
-        <BlogContext.Provider value={{ fetchAllBlog, fetchMyBlog }} >
+        <BlogContext.Provider value={{ fetchAllBlog, fetchMyBlog, fetchBlog }} >
             {props.children}
         </BlogContext.Provider>
     )
