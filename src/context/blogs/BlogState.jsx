@@ -9,8 +9,18 @@ const BlogState = (props) => {
         const products = response.data;
         return products;
     }
+    const fetchMyBlog = async () => {
+        const response = await Axios.get(`${host}/api/blog/fetchuserblogs`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'auth-token': localStorage.getItem('auth-token')
+            }
+        });
+        const products = response.data;
+        return products;
+    }
     return (
-        <BlogContext.Provider value={{ fetchAllBlog }} >
+        <BlogContext.Provider value={{ fetchAllBlog, fetchMyBlog }} >
             {props.children}
         </BlogContext.Provider>
     )
