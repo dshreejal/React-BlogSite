@@ -9,6 +9,7 @@ import UserState from "./context/users/UserState";
 import Login from "./pages/Login";
 import PrivateRoute from "./route/PrivateRoute";
 import ReadMore from "./pages/ReadMore";
+import NotFound from "./pages/NotFound";
 function App() {
   const client = new QueryClient();
 
@@ -23,8 +24,9 @@ function App() {
               <Route element={<PrivateRoute />}>
                 <Route path='/myblogs' element={<MyBlogs />} exact />
               </Route>
-              <Route path='/readmore' element={<ReadMore />} />
+              <Route path='/readmore/:id' element={<ReadMore />} />
               <Route path='/login' element={<Login />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
           </div>
