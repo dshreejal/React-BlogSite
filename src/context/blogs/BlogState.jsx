@@ -24,8 +24,20 @@ const BlogState = (props) => {
         const blog = response.data;
         return blog;
     }
+
+    //Delete a blog
+    const deleteBlog = async (id) => {
+        const response = await Axios.delete(`${host}/api/blog/deleteblog/${id}`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'auth-token': localStorage.getItem('auth-token')
+            }
+        })
+        const data = await response.data;
+        return data;
+    }
     return (
-        <BlogContext.Provider value={{ fetchAllBlog, fetchMyBlog, fetchBlog }} >
+        <BlogContext.Provider value={{ fetchAllBlog, fetchMyBlog, fetchBlog, deleteBlog }} >
             {props.children}
         </BlogContext.Provider>
     )
