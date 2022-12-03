@@ -7,7 +7,7 @@ const MyBlogs = () => {
     const context = useContext(BlogContext);
     const { fetchMyBlog } = context;
 
-    const { data, isLoading, isError } = useQuery(["my-blogs"], fetchMyBlog)
+    const { data, isLoading, isError } = useQuery(["my-blogs"], fetchMyBlog, { refetchInterval: 100, })
     return (
         <div className=''>
             {isLoading ?

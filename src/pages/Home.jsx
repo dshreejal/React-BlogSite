@@ -6,7 +6,7 @@ const Home = () => {
     const context = useContext(BlogContext);
     const { fetchAllBlog } = context;
 
-    const { data, isLoading, isError } = useQuery(["all-blogs"], fetchAllBlog)
+    const { data, isLoading, isError } = useQuery(["all-blogs"], fetchAllBlog, { refetchInterval: 1000, })
     return (
         <div className=''>
             {isLoading ?
