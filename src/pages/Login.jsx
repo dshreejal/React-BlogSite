@@ -66,7 +66,7 @@ const Login = () => {
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center">
                                     <label className="ml-2 block text-sm text-gray-900">
-                                        Dont have an account? <NavLink to='/signup' className='text-indigo-900 underline'>Sign Up</NavLink>
+                                        Don't have an account? <NavLink to='/signup' className='text-indigo-900 underline'>Sign Up</NavLink>
                                     </label>
                                 </div>
                             </div>
