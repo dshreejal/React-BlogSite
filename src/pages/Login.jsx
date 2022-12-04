@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import UserContext from '../context/users/UserContext'
 import { useMutation } from "@tanstack/react-query"
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 const Login = () => {
     const context = useContext(UserContext);
     const { Login } = context;
@@ -66,7 +66,7 @@ const Login = () => {
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center">
                                     <label className="ml-2 block text-sm text-gray-900">
-                                        Dont have an account? Sign In
+                                        Dont have an account? <NavLink to='/signup' className='text-indigo-900 underline'>Sign Up</NavLink>
                                     </label>
                                 </div>
                             </div>
