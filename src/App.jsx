@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import PrivateRoute from "./route/PrivateRoute";
 import ReadMore from "./pages/ReadMore";
 import NotFound from "./pages/NotFound";
+import SignUp from "./pages/SignUp";
 function App() {
   const client = new QueryClient();
 
@@ -26,6 +27,7 @@ function App() {
               </Route>
               <Route path='/readmore/:id' element={<ReadMore />} />
               <Route path='/login' element={<Login />} />
+              <Route path='/signup' element={<SignUp />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
