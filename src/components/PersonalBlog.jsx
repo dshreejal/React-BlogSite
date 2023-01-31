@@ -23,6 +23,15 @@ const PersonalBlog = ({ blog }) => {
         deleteBlogMutation.mutate(blog._id)
     }
 
+    const truncateString = (str, num) => {
+        if (str?.length > num) {
+            return str.slice(0, num) + '.....'
+        }
+        else {
+            return str;
+        }
+    }
+
     return (
         <>
             <div className="rounded-lg shadow-lg bg-white max-w-sm max-h-[500px]">
@@ -32,7 +41,7 @@ const PersonalBlog = ({ blog }) => {
                 <div className="p-6">
                     <h5 className="text-gray-900 text-xl font-medium mb-2">{blog.title}</h5>
                     <p className="text-gray-700 text-base mb-4">
-                        {blog.description}
+                        {truncateString(blog?.description, 30)}
                     </p>
                     <div className='flex items-center justify-between'>
                         <button onClick={handleReadMe} type="button" className=" inline-block px-6 py-2.5 bg-indigo-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-indigo-800 active:shadow-lg transition duration-150 ease-in-out">Read More</button>
