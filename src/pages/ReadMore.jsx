@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import BlogContext from '../context/blogs/BlogContext'
 import { useQuery } from "@tanstack/react-query"
-
 const ReadMore = () => {
     const context = useContext(BlogContext);
     const { fetchBlog } = context;
@@ -28,23 +27,22 @@ const ReadMore = () => {
         )
     }
 
-    function hello() {
-        return (
-            <div className='grid grid-cols-2 bg-blue-600 w-[900px] '>
-                <div className='bg-red-700'>{data?.description}</div>
-                <div className='flex items-center jus'>
-                    <img src={`${import.meta.env.VITE_BACKEND_URL}/images/${data?.img}`} alt="" className='w-48' />
-                </div>
-            </div>
-        )
-    }
+
     return (
         <div className='min-h-[90vh] px-12 flex flex-col py-10 items-center'>
-            <div className='text-center text-3xl pb-10'>{data?.title}</div>
+            <div className='text-center text-4xl pb-10'>{data?.title}</div>
             <main>
+                <div className='m-auto pl-10 pt-5 md:max-w-4xl flex flex-col gap-3'>
+                    <div className='text-2xl'>
+                        Author: {data.user.name}
+                    </div>
+                    <div className='text-xl'>
+                        Published Date: {data?.date.slice(0, 10)}
+                    </div>
+                </div>
                 <div className="flex flex-col-reverse align-center justify-center m-auto p-10 md:max-w-4xl md:flex-row">
-                    <div className="w-full md:w-2/3 mr-24">
-                        <p>{data?.description}</p>
+                    <div className="w-full md:w-2/3 mr-24 text-lg">
+                        <div className='whitespace-pre-line'>{data?.description}</div>
                     </div>
                     <div className="w-full md:w-1/3">
                         <img src={`${import.meta.env.VITE_BACKEND_URL}/images/${data?.img}`} alt="" className=" w-3/4 mb-10 m-auto md:w-full" />
