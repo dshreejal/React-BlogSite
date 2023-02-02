@@ -1,13 +1,18 @@
 
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import BlogContext from '../context/blogs/BlogContext'
 import { useQuery } from "@tanstack/react-query"
 import PersonalBlog from '../components/PersonalBlog'
+import { IoAddCircleOutline } from 'react-icons/io5';
+import AddBlog from '../components/AddBlog';
+
 const MyBlogs = () => {
     const context = useContext(BlogContext);
     const { fetchMyBlog } = context;
 
     const { data, isLoading, isError } = useQuery(["my-blogs"], fetchMyBlog, { refetchInterval: 100, })
+
+    const [openModal, setOpenModal] = useState(false);
     return (
         <div className=''>
             {isLoading ?
@@ -29,15 +34,22 @@ const MyBlogs = () => {
                 : <div></div>
             }
             {data ?
-                <div className=''>
-                    <div className='text-center font-extrabold text-3xl mt-10'>My Blogs</div>
-                    <div className='flex items-center justify-center'>
-                        <div className="grid px-12 gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10">
-                            {data?.map((blog) => <PersonalBlog key={blog._id} blog={blog} />)}
+                <>
+                    {openModal && <AddBlog setOpenModal={setOpenModal} />}
+                    <div className=''>
+                        <div className='text-center font-extrabold text-3xl mt-10'>My Blogs</div>
+                        <div className='flex items-center justify-center pt-10'>
+                            <button onClick={() => { setOpenModal(true) }} className='text-white text-xl bg-indigo-600 hover:bg-indigo-700 hover:shadow-lg focus:bg-indigo-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-indigo-800 active:shadow-lg transition duration-150 ease-in-out px-2 py-1 rounded-xl flex items-center justify-center gap-2' ><p>Add Blog</p> < IoAddCircleOutline size={20} className="mt-1" /> </button>
+                        </div>
+                        <div className='flex items-center justify-center'>
+                            <div className="grid px-12 gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10">
+                                {data?.map((blog) => <PersonalBlog key={blog._id} blog={blog} />)}
+                            </div>
                         </div>
                     </div>
-                </div>
+                </>
                 : <div></div>
+
             }
         </div>
     )
