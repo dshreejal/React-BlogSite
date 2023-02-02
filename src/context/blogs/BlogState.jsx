@@ -25,6 +25,18 @@ const BlogState = (props) => {
         return blog;
     }
 
+    //Add a Blog
+    const addBlog = async (formData) => {
+        const response = await Axios.post(`${host}/api/blog/addblog`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                'auth-token': localStorage.getItem("auth-token")
+            }
+        });
+        const data = await response.data;
+        return data;
+    }
+
     //Delete a blog
     const deleteBlog = async (id) => {
         const response = await Axios.delete(`${host}/api/blog/deleteblog/${id}`, {
@@ -37,7 +49,7 @@ const BlogState = (props) => {
         return data;
     }
     return (
-        <BlogContext.Provider value={{ fetchAllBlog, fetchMyBlog, fetchBlog, deleteBlog }} >
+        <BlogContext.Provider value={{ fetchAllBlog, fetchMyBlog, fetchBlog, addBlog, deleteBlog }} >
             {props.children}
         </BlogContext.Provider>
     )
