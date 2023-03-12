@@ -30,7 +30,9 @@ const BlogState = (props) => {
         const response = await Axios.post(`${host}/api/blog/addblog`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
-                'auth-token': localStorage.getItem("auth-token")
+                'auth-token': localStorage.getItem("auth-token"),
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-Api-Key': import.meta.env.CLOUDINARY_API_KEY
             }
         });
         const data = await response.data;
