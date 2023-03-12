@@ -36,7 +36,7 @@ const PersonalBlog = ({ blog }) => {
         <>
             <div className="rounded-lg shadow-lg bg-white max-w-sm max-h-[500px]">
                 <div className='flex items-center justify-center'>
-                    <img className="w-40 mt-5 h-40" src={`${import.meta.env.VITE_BACKEND_URL}/images/${blog.img}`} alt="" />
+                    <img className="w-40 mt-5 h-40" src={blog?.img} alt="" />
                 </div>
                 <div className="p-6">
                     <h5 className="text-gray-900 text-xl font-medium mb-2">{blog.title}</h5>

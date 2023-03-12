@@ -45,7 +45,7 @@ const ReadMore = () => {
                         <div className='whitespace-pre-line'>{data?.description}</div>
                     </div>
                     <div className="w-full md:w-1/3">
-                        <img src={`${import.meta.env.VITE_BACKEND_URL}/images/${data?.img}`} alt="" className=" w-3/4 mb-10 m-auto md:w-full" />
+                        <img src={data?.img} alt="" className=" w-3/4 mb-10 m-auto md:w-full" />
                     </div>
                 </div>
             </main>
