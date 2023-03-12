@@ -9,6 +9,9 @@ const AddBlog = (props) => {
     const [selectedFile, setSelectedFile] = useState();
 
     const addBlogMutation = useMutation(addBlog, {
+        onError: (error) => {
+            console.log("Error:", error);
+        }
     })
 
     const onChange = (e) => {
